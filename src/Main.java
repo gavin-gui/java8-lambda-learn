@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -14,9 +15,12 @@ public class Main {
             list.add(i);
         }
 
-        list.stream().filter(item -> item % 2 != 0)
-                     .map(item->item*2)
-                     .forEach(item-> System.out.println(item));
+        List<Integer> result = list.stream() //list转化为stream
+                .filter(item -> item % 2 != 0) //使用filter过滤出符合条件的数据
+                .map(item -> item * 2) //使用map处理每一项数值
+                //.forEach(item-> System.out.println(item))
+                .collect(Collectors.toList()); //将stream转化为list
+        System.out.println(result);
         //long count = stem.count();
         //System.out.println("list count:"+ count);
 
