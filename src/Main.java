@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Main {
 
@@ -15,11 +14,12 @@ public class Main {
             list.add(i);
         }
 
-        Stream<Integer> stem = list.stream().filter(item -> item % 2 != 0);
+        list.stream().filter(item -> item % 2 != 0)
+                     .map(item->item*2)
+                     .forEach(item-> System.out.println(item));
         //long count = stem.count();
         //System.out.println("list count:"+ count);
 
-        stem.map(item -> item * 2).forEach(item -> System.out.println(item));
     }
 
 
